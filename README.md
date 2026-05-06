@@ -1,6 +1,6 @@
-# 📚 Plataforma de Atividades Escolares Flexível
+# 📚 Caderno Digital
 
-**Autor:** Milena é Fábio 
+**Autores:** Milena é Fábio 
 
 
 
