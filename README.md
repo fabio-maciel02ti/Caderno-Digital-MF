@@ -1,98 +1,95 @@
 # 📚 Caderno Digital
 
-**Autores:** Milena é Fábio 
-
-
-
-## 💡 Descrição
-
-🎯 Este projeto tem como objetivo ajudar alunos que não conseguem estar sempre presentes na escola, seja por faltas, trabalho ou responsabilidades familiares.
-
-💻 A plataforma permite que esses alunos acessem, guardem e entreguem atividades escolares de qualquer lugar, no seu próprio tempo, evitando a perda de conteúdo e prazos.
-
-
-
-## ⚙️ Funcionamento Técnico (Como funciona)
-
-📊 Fluxo do sistema:
-
-```mermaid
-graph LR
-A[👨‍🏫 Professor cria atividade] --> B[💾 Sistema registra]
-B --> C[🌐 Plataforma disponibiliza]
-C --> D[👨‍🎓 Aluno acessa]
-D --> E[✍️ Realiza atividade]
-E --> F[📤 Envia atividade]
-F --> G[✅ Sistema valida]
-G --> H[⛓️ Registro na Solana]
-```
-
-
-
-## 👤 Jornada do Usuário
-
-🧭 Passo a passo do aluno:
-
-1. 🌐 Acessa a plataforma
-2. 🔐 Conecta sua carteira digital (ex: Phantom)
-3. 📋 Visualiza as atividades disponíveis
-4. 📌 Escolhe uma atividade
-5. ✍️ Realiza a atividade
-6. 📤 Envia a atividade
-7. ✅ Confirma a transação
-8. 📄 Recebe um comprovante de envio
-
-
-
-## 🖼️ Wireframe (Esboço de Telas)
-
-🎨 Adicione aqui o link do seu protótipo (Figma, Canva ou imagem)
-
-Exemplo:
-👉 [https://figma.com/seu-projeto](https://figma.com/seu-projeto)
-
-💡 Dica: Mostre botões principais como:
-
-* "📤 Enviar atividade"
-* "📋 Ver atividades"
-* "📄 Histórico"
-
-
-
-## 🔗 Diferencial Blockchain (Solana)
-
-⛓️ O uso da blockchain Solana no projeto garante:
-
-* 🔒 **Imutabilidade:** os dados não podem ser alterados
-* 👁️ **Transparência:** é possível verificar os envios
-* ⚡ **Velocidade e baixo custo:** ideal para uso frequente
-
-
-
-## 🎯 Público-Alvo
-
-👨‍🎓 Alunos que não conseguem estar sempre presentes na escola por:
-
-* ❌ faltas
-* 💼 trabalho
-* 🏠 responsabilidades familiares
+**Autores:** Milena e Fábio
 
 ---
 
-# 🚀 Benefício
+# 1️⃣ Qual é o problema real?
 
-✨ Permite que o aluno:
+Muitos alunos não conseguem estar presentes na escola com frequência por motivos como trabalho, responsabilidades familiares ou faltas.
 
-* 🌍 Acesse atividades de qualquer lugar
-* 💾 Guarde suas tarefas
-* ⏰ Entregue no seu próprio tempo
-* 📚 Não perca conteúdo ou prazos
+Com isso, acabam perdendo atividades, conteúdos importantes e prazos de entrega, prejudicando seu aprendizado e desempenho escolar.
 
 ---
 
-## 📌 Resumo Visual
+# 2️⃣ Qual a dor mais importante?
 
-```
+- 📚 Dificuldade de acompanhar as atividades escolares fora da sala de aula
+- ⏰ Perda de conteúdo e prazos por falta de acesso às tarefas
+- 🌍 Falta de flexibilidade para estudar no próprio tempo
+- 📄 Ausência de um local seguro para guardar e enviar atividades
+
+---
+
+# 3️⃣ Me oriente quanto à melhor direção
+
+A melhor direção para o projeto é focar em uma plataforma:
+
+- ✅ simples
+- 📱 acessível pelo celular
+- 🌐 disponível de qualquer lugar
+- 📋 organizada para alunos e professores
+
+## 🎯 Prioridades do projeto
+
+### 👨‍🎓 Para os alunos
+- Visualizar atividades facilmente
+- Fazer tarefas online
+- Enviar atividades rapidamente
+- Acompanhar histórico de entregas
+
+### 👨‍🏫 Para os professores
+- Criar atividades com facilidade
+- Organizar tarefas por turma
+- Validar entregas dos alunos
+
+### ⛓️ Diferencial Blockchain
+A blockchain Solana será usada para:
+
+- 🔒 garantir segurança
+- 👁️ trazer transparência
+- 📄 registrar entregas de forma imutável
+- ⚡ oferecer rapidez e baixo custo
+
+---
+
+# 4️⃣ Qual é o meu público?
+
+O público-alvo são alunos que não conseguem frequentar a escola regularmente devido a:
+
+- 💼 trabalho
+- 🏠 responsabilidades familiares
+- ❌ faltas frequentes
+- 📍 dificuldade de acesso presencial
+
+## 👥 Perfil principal
+Estudantes que precisam de flexibilidade para continuar os estudos sem perder conteúdos e prazos escolares.
+
+---
+
+# 5️⃣ Qual é a proposta de valor?
+
+O **Caderno Digital** permite que alunos:
+
+- 🌍 acessem atividades de qualquer lugar
+- ✍️ realizem tarefas online
+- 📤 enviem atividades no próprio tempo
+- 💾 guardem seus registros escolares
+- ⏰ evitem perda de conteúdo e prazos
+
+## ⛓️ Valor agregado com Solana
+
+A integração com a blockchain Solana garante:
+
+- 🔒 segurança dos registros
+- 👁️ transparência nas entregas
+- ✅ comprovação confiável das atividades enviadas
+
+---
+
+# 🚀 Resumo Visual
+
+```text
 📚 Problema: Falta de presença escolar
         ↓
 💻 Solução: Plataforma online
@@ -102,4 +99,3 @@ Exemplo:
 ⛓️ Garantia: Registro seguro na blockchain
         ↓
 🎯 Resultado: Sem perda de conteúdo ou prazo
-```
