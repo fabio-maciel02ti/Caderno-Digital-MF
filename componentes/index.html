@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduChain MVP | Caderno Digital Blockchain</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="authScreen" class="screen active">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <span class="logo-icon">📚</span>
+                    <h1>EduChain</h1>
+                    <p>Caderno Digital com Blockchain Solana</p>
+                </div>
+
+                <div class="auth-tabs">
+                    <button class="tab-btn active" data-tab="login">Login</button>
+                    <button class="tab-btn" data-tab="register">Registrar</button>
+                </div>
+
+                <!-- Login Tab -->
+                <form id="loginForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Senha</label>
+                        <input type="password" id="loginPassword" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Entrar</button>
+                </form>
+
+                <!-- Register Tab -->
+                <form id="registerForm" class="auth-form hidden">
+                    <div class="form-group">
+                        <label for="registerName">Nome Completo</label>
+                        <input type="text" id="registerName" placeholder="João da Silva" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">Email</label>
+                        <input type="email" id="registerEmail" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Senha</label>
+                        <input type="password" id="registerPassword" placeholder="Mínimo 6 caracteres" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerMatricula">Matrícula</label>
+                        <input type="text" id="registerMatricula" placeholder="2026..." required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Criar Conta</button>
+                </form>
+
+                <div class="auth-demo">
+                    <p>Demo: Use qualquer email/senha</p>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <!-- Main Application -->
+    <div id="appScreen" class="screen">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <h2 class="app-title">📚 EduChain</h2>
+                    <div class="wallet-info">
+                        <span class="wallet-label">Carteira:</span>
+                        <code class="wallet-address" id="walletAddress">DEV_WALLET_001</code>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="user-info">
+                        <span id="userName">Usuário</span>
+                        <button class="btn-logout" id="logoutBtn">🚪 Sair</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Container -->
+        <div class="container">
+            <!-- Sidebar Navigation -->
+            <aside class="sidebar">
+                <nav class="nav-menu">
+                    <button class="nav-item active" data-view="dashboard">
+                        <span class="icon">📊</span>
+                        <span>Dashboard</span>
+                    </button>
+                    <button class="nav-item" data-view="tasks">
+                        <span class="icon">✏️</span>
+                        <span>Tarefas</span>
+                    </button>
+                    <button class="nav-item" data-view="editor">
+                        <span class="icon">📝</span>
+                        <span>Editor</span>
+                    </button>
+                    <button class="nav-item" data-view="history">
+                        <span class="icon">⏱️</span>
+                        <span>Histórico</span>
+                    </button>
+                    <button class="nav-item" data-view="blockchain">
+                        <span class="icon">⛓️</span>
+                        <span>Blockchain</span>
+                    </button>
+                </nav>
+            </aside>
+
+            <!-- Content Area -->
+            <main class="content">
+                <!-- Dashboard View -->
+                <div id="dashboardView" class="view active">
+                    <div class="view-header">
+                        <h3>Dashboard</h3>
+                        <p class="date">Hoje: <span id="todayDate"></span></p>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <!-- Stats Cards -->
+                        <div class="stat-card">
+                            <div class="stat-icon">📋</div>
+                            <div class="stat-content">
+                                <span class="stat-label">Tarefas Pendentes</span>
+                                <span class="stat-number" id="statPending">0</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">✅</div>
+                            <div class="stat-content">
+                                <span class="stat-label">Concluídas</span>
+                                <span class="stat-number" id="statCompleted">0</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">⛓️</div>
+                            <div class="stat-content">
+                                <span class="stat-label">On-Chain</span>
+                                <span class="stat-number" id="statOnChain">0</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🔐</div>
+                            <div class="stat-content">
+                                <span class="stat-label">Hash SHA-256</span>
+                                <span class="stat-number" id="statHashes">0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="quick-section">
+                        <h4>Tarefas Urgentes 🔴</h4>
+                        <div id="urgentTasks" class="urgent-list">
+                            <p class="empty-state">Nenhuma tarefa urgente</p>
+                        </div>
+                    </div>
+
+                    <div class="quick-section">
+                        <h4>Últimos Envios 📤</h4>
+                        <div id="recentSubmits" class="recent-list">
+                            <p class="empty-state">Nenhum envio recente</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tasks View -->
+                <div id="tasksView" class="view">
+                    <div class="view-header">
+                        <h3>Minhas Tarefas</h3>
+                        <div class="filter-group">
+                            <select id="filterSubject" class="filter-select">
+                                <option value="">Todas as Disciplinas</option>
+                                <option value="Português">Português</option>
+                                <option value="Matemática">Matemática</option>
+                                <option value="História">História</option>
+                                <option value="Ciências">Ciências</option>
+                                <option value="Inglês">Inglês</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="tasksList" class="tasks-grid">
+                        <p class="loading">Carregando tarefas...</p>
+                    </div>
+                </div>
+
+                <!-- Editor View -->
+                <div id="editorView" class="view">
+                    <div class="view-header">
+                        <h3>Editor de Respostas</h3>
+                        <button id="selectTaskBtn" class="btn btn-secondary">Selecionar Tarefa</button>
+                    </div>
+
+                    <div class="editor-container">
+                        <div id="taskInfo" class="task-info hidden">
+                            <div class="task-title">
+                                <h4 id="editorTaskTitle"></h4>
+                                <span id="editorTaskSubject" class="badge"></span>
+                                <span id="editorTaskDue" class="badge priority"></span>
+                            </div>
+                            <div class="task-description" id="editorTaskDesc"></div>
+                        </div>
+
+                        <div class="editor-panel">
+                            <div class="editor-toolbar">
+                                <button id="boldBtn" title="Negrito" class="toolbar-btn">🅱️ Bold</button>
+                                <button id="italicBtn" title="Itálico" class="toolbar-btn">✏️ Itálico</button>
+                                <button id="linkBtn" title="Link" class="toolbar-btn">🔗 Link</button>
+                                <button id="clearBtn" title="Limpar" class="toolbar-btn">🗑️ Limpar</button>
+                            </div>
+                            <textarea id="responseEditor" class="response-editor" placeholder="Escreva sua resposta aqui..."></textarea>
+                            <div class="editor-footer">
+                                <span class="char-count">0 caracteres</span>
+                                <span id="autoSaveStatus" class="auto-save">Alterações salvas</span>
+                            </div>
+                        </div>
+
+                        <div class="editor-actions">
+                            <button id="saveDraftBtn" class="btn btn-secondary">💾 Salvar Rascunho</button>
+                            <button id="submitBlockchainBtn" class="btn btn-primary" disabled>⛓️ Registrar na Blockchain</button>
+                        </div>
+
+                        <div id="editorEmpty" class="empty-state text-center">
+                            <p>Selecione uma tarefa para começar a editar</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- History View -->
+                <div id="historyView" class="view">
+                    <div class="view-header">
+                        <h3>Histórico de Atividades</h3>
+                    </div>
+
+                    <div id="historiesList" class="history-list">
+                        <p class="loading">Carregando histórico...</p>
+                    </div>
+                </div>
+
+                <!-- Blockchain View -->
+                <div id="blockchainView" class="view">
+                    <div class="view-header">
+                        <h3>Transações Blockchain</h3>
+                        <button id="refreshBlockchainBtn" class="btn btn-secondary">🔄 Atualizar</button>
+                    </div>
+
+                    <div class="blockchain-info">
+                        <div class="blockchain-card">
+                            <h4>📊 Estatísticas</h4>
+                            <div class="stats">
+                                <div class="stat">
+                                    <span>Total de Transações:</span>
+                                    <strong id="totalTransactions">0</strong>
+                                </div>
+                                <div class="stat">
+                                    <span>Confirmadas:</span>
+                                    <strong id="confirmedTransactions">0</strong>
+                                </div>
+                                <div class="stat">
+                                    <span>Rede Simulada:</span>
+                                    <strong>Solana Devnet</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="blockchain-card">
+                        <h4>⛓️ Transações Recentes</h4>
+                        <div id="transactionsList" class="transactions-list">
+                            <p class="empty-state">Nenhuma transação registrada</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Task Selector Modal -->
+        <div id="taskSelectorModal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Selecione uma Tarefa</h3>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <div id="selectorTasksList" class="modal-body tasks-list">
+                    <p class="loading">Carregando tarefas...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submission Confirmation Modal -->
+        <div id="confirmSubmitModal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>⛓️ Confirmar Registro na Blockchain</h3>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="confirm-info">
+                        <p><strong>Tarefa:</strong> <span id="confirmTaskName"></span></p>
+                        <p><strong>Resposta (primeiros 100 caracteres):</strong></p>
+                        <div class="response-preview" id="confirmResponsePreview"></div>
+                        <p class="warning">⚠️ Esta ação é irreversível. A resposta será registrada na blockchain com timestamp imutável.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="cancelSubmitBtn">Cancelar</button>
+                    <button class="btn btn-primary" id="confirmSubmitBtn">Confirmar Envio</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Modal -->
+        <div id="successModal" class="modal hidden">
+            <div class="modal-content modal-success">
+                <div class="modal-header">
+                    <h3>✅ Registrado com Sucesso!</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="success-content">
+                        <p class="success-message">Sua resposta foi registrada na blockchain com sucesso!</p>
+                        <div class="tx-details">
+                            <p><strong>ID da Transação:</strong></p>
+                            <code id="successTxId" class="tx-id"></code>
+                            <button class="btn btn-small" id="copyTxBtn">📋 Copiar</button>
+                        </div>
+                        <p class="info-text">💡 Você pode usar este ID para comprovar que sua tarefa foi entregue.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="closeSuccessBtn">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="blockchain.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
